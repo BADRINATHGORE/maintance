@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Under Maintenance | Badrinath Gore</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    color:#fff;
+    background:linear-gradient(
+        135deg,
+        #0f0c29,
+        #302b63,
+        #24243e
+    );
+    position:relative;
+}
+
+/* Animated Background */
+body::before,
+body::after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.4;
+}
+
+body::before{
+    background:#00e5ff;
+    top:-150px;
+    left:-150px;
+}
+
+body::after{
+    background:#ff00ff;
+    bottom:-150px;
+    right:-150px;
+}
+
+/* Glass Card */
+.container{
+    position:relative;
+    z-index:10;
+    max-width:750px;
+    width:90%;
+    padding:60px 45px;
+    text-align:center;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:30px;
+
+    box-shadow:
+    0 0 40px rgba(0,0,0,.3),
+    0 0 80px rgba(0,229,255,.15);
+}
+
+/* Icon */
+.icon{
+    font-size:90px;
+    margin-bottom:20px;
+    animation:spin 6s linear infinite;
+}
+
+@keyframes spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+/* Badge */
+.badge{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:50px;
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.2);
+    margin-bottom:20px;
+    color:#00e5ff;
+    font-size:.9rem;
+}
+
+/* Heading */
+h1{
+    font-size:3.5rem;
+    font-weight:800;
+    margin-bottom:20px;
+    line-height:1.2;
+}
+
+.highlight{
+    background:linear-gradient(
+        90deg,
+        #00e5ff,
+        #9d4edd,
+        #ff4dff
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* Paragraph */
+p{
+    color:#d8d8d8;
+    font-size:1.1rem;
+    line-height:1.9;
+    margin-bottom:35px;
+}
+
+/* Button */
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    padding:15px 35px;
+    border-radius:50px;
+
+    background:linear-gradient(
+        90deg,
+        #00c6ff,
+        #7b2ff7
+    );
+
+    transition:.4s ease;
+}
+
+.btn:hover{
+    transform:translateY(-5px) scale(1.05);
+    box-shadow:0 10px 30px rgba(123,47,247,.5);
+}
+
+/* Footer */
+.footer{
+    margin-top:35px;
+    color:#bcbcbc;
+    font-size:14px;
+}
+
+/* Floating Dots */
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    animation:float 12s linear infinite;
+}
+
+.circle:nth-child(1){
+    width:80px;
+    height:80px;
+    top:10%;
+    left:10%;
+}
+
+.circle:nth-child(2){
+    width:50px;
+    height:50px;
+    bottom:15%;
+    left:20%;
+}
+
+.circle:nth-child(3){
+    width:100px;
+    height:100px;
+    top:20%;
+    right:10%;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-30px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:768px){
+
+    h1{
+        font-size:2.4rem;
+    }
+
+    p{
+        font-size:1rem;
+    }
+
+    .icon{
+        font-size:70px;
+    }
+
+    .container{
+        padding:40px 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
+<div class="container">
+
+    <div class="badge">
+        🚀 Website Upgrade In Progress
+    </div>
+
+    <div class="icon">⚙️</div>
+
+    <h1>
+        Website <span class="highlight">Under Maintenance</span>
+    </h1>
+
+    <p>
+        Thank you for visiting my website.
+        I'm currently enhancing the design, projects,
+        and professional experience section to deliver
+        a better and more modern experience.
+    </p>
+
+    <a href="mailto:badrinathgore2002@gmail.com" class="btn">
+        Contact Me
+    </a>
+
+    <div class="footer">
+        © 2026 Badrinath Gore • Quality Engineer    </div>
+
+</div>
+
+</body>
+</html>
