@@ -3,11 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Under Maintenance | Badrinath Gore</title>
+<title>Badrinath Gore | Under Maintenance</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+html{
+    scroll-behavior:smooth;
+}
+
 *{
     margin:0;
     padding:0;
@@ -19,19 +23,15 @@ body{
     min-height:100vh;
     display:flex;
     justify-content:center;
-    align-items:center;
-    overflow:hidden;
+    align-items:flex-start;
+    padding:40px 20px;
     color:#fff;
-    background:linear-gradient(
-        135deg,
-        #0f0c29,
-        #302b63,
-        #24243e
-    );
+    background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
     position:relative;
+    overflow-x:hidden;
 }
 
-/* Animated Background */
+/* Background Glow Effects */
 body::before,
 body::after{
     content:"";
@@ -40,7 +40,8 @@ body::after{
     height:500px;
     border-radius:50%;
     filter:blur(120px);
-    opacity:.4;
+    opacity:.35;
+    z-index:0;
 }
 
 body::before{
@@ -55,56 +56,129 @@ body::after{
     right:-150px;
 }
 
-/* Glass Card */
+/* Floating Elements */
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.06);
+    animation:float 12s ease-in-out infinite;
+    z-index:0;
+}
+
+.circle:nth-child(1){
+    width:90px;
+    height:90px;
+    top:10%;
+    left:10%;
+}
+
+.circle:nth-child(2){
+    width:60px;
+    height:60px;
+    bottom:15%;
+    left:18%;
+}
+
+.circle:nth-child(3){
+    width:120px;
+    height:120px;
+    top:18%;
+    right:10%;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-30px);
+    }
+}
+
+/* Main Container */
 .container{
     position:relative;
     z-index:10;
-    max-width:750px;
-    width:90%;
+    width:100%;
+    max-width:850px;
+    margin:auto;
+
     padding:60px 45px;
     text-align:center;
 
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
 
     border:1px solid rgba(255,255,255,0.15);
     border-radius:30px;
 
     box-shadow:
-    0 0 40px rgba(0,0,0,.3),
-    0 0 80px rgba(0,229,255,.15);
-}
-
-/* Icon */
-.icon{
-    font-size:90px;
-    margin-bottom:20px;
-    animation:spin 6s linear infinite;
-}
-
-@keyframes spin{
-    from{transform:rotate(0deg);}
-    to{transform:rotate(360deg);}
+        0 0 40px rgba(0,0,0,.35),
+        0 0 80px rgba(0,229,255,.12);
 }
 
 /* Badge */
 .badge{
     display:inline-block;
-    padding:8px 18px;
+    padding:10px 20px;
     border-radius:50px;
-    background:rgba(255,255,255,.1);
-    border:1px solid rgba(255,255,255,.2);
-    margin-bottom:20px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
     color:#00e5ff;
-    font-size:.9rem;
+    font-size:14px;
+    margin-bottom:25px;
 }
 
-/* Heading */
-h1{
-    font-size:3.5rem;
+/* Name */
+.name{
+    font-size:clamp(2.8rem,8vw,5rem);
     font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:10px;
+
+    background:linear-gradient(
+        90deg,
+        #00e5ff,
+        #7b2ff7,
+        #ff4dff
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* Designation */
+.designation{
+    color:#d1d5db;
+    font-size:1.1rem;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:30px;
+}
+
+/* Rotating Icon */
+.icon{
+    font-size:90px;
+    margin-bottom:25px;
+    animation:spin 8s linear infinite;
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* Main Heading */
+h1{
+    font-size:clamp(2rem,6vw,3.5rem);
+    font-weight:800;
+    line-height:1.3;
     margin-bottom:20px;
-    line-height:1.2;
 }
 
 .highlight{
@@ -118,12 +192,13 @@ h1{
     -webkit-text-fill-color:transparent;
 }
 
-/* Paragraph */
+/* Description */
 p{
     color:#d8d8d8;
     font-size:1.1rem;
     line-height:1.9;
-    margin-bottom:35px;
+    max-width:650px;
+    margin:0 auto 35px;
 }
 
 /* Button */
@@ -141,78 +216,56 @@ p{
         #7b2ff7
     );
 
-    transition:.4s ease;
+    transition:all .4s ease;
 }
 
 .btn:hover{
-    transform:translateY(-5px) scale(1.05);
-    box-shadow:0 10px 30px rgba(123,47,247,.5);
+    transform:translateY(-5px);
+    box-shadow:0 10px 30px rgba(123,47,247,.45);
 }
 
 /* Footer */
 .footer{
-    margin-top:35px;
+    margin-top:40px;
     color:#bcbcbc;
     font-size:14px;
+    border-top:1px solid rgba(255,255,255,.1);
+    padding-top:20px;
 }
 
-/* Floating Dots */
-.circle{
-    position:absolute;
-    border-radius:50%;
-    background:rgba(255,255,255,.08);
-    animation:float 12s linear infinite;
-}
+/* Responsive */
+@media (max-width:768px){
 
-.circle:nth-child(1){
-    width:80px;
-    height:80px;
-    top:10%;
-    left:10%;
-}
-
-.circle:nth-child(2){
-    width:50px;
-    height:50px;
-    bottom:15%;
-    left:20%;
-}
-
-.circle:nth-child(3){
-    width:100px;
-    height:100px;
-    top:20%;
-    right:10%;
-}
-
-@keyframes float{
-    0%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-30px);
-    }
-    100%{
-        transform:translateY(0);
-    }
-}
-
-@media(max-width:768px){
-
-    h1{
-        font-size:2.4rem;
-    }
-
-    p{
-        font-size:1rem;
-    }
-
-    .icon{
-        font-size:70px;
+    body{
+        padding:20px 15px;
     }
 
     .container{
-        padding:40px 25px;
+        padding:35px 20px;
+        border-radius:20px;
+    }
+
+    .designation{
+        font-size:.9rem;
+        letter-spacing:2px;
+    }
+
+    .icon{
+        font-size:65px;
+    }
+
+    p{
+        font-size:.95rem;
+        line-height:1.7;
+    }
+
+    .btn{
+        width:100%;
+        max-width:260px;
+    }
+
+    .footer{
+        font-size:13px;
     }
 }
 </style>
@@ -220,27 +273,39 @@ p{
 
 <body>
 
+<!-- Floating Shapes -->
 <div class="circle"></div>
 <div class="circle"></div>
 <div class="circle"></div>
 
+<!-- Main Card -->
 <div class="container">
 
     <div class="badge">
-        🚀 Website Upgrade In Progress
+        🚀 WEBSITE UPGRADE IN PROGRESS
     </div>
 
-    <div class="icon">⚙️</div>
+    <div class="name">
+        Badrinath Gore
+    </div>
+
+    <div class="designation">
+        Quality Engineer
+    </div>
+
+    <div class="icon">
+        ⚙️
+    </div>
 
     <h1>
         Website <span class="highlight">Under Maintenance</span>
     </h1>
 
     <p>
-        Thank you for visiting my website.
-        I'm currently enhancing the design, projects,
-        and professional experience section to deliver
-        a better and more modern experience.
+        Thank you for visiting my website. I am currently upgrading my
+        portfolio, projects, skills, and professional experience sections
+        to provide a better, faster, and more modern user experience.
+        Please check back soon.
     </p>
 
     <a href="mailto:badrinathgore2002@gmail.com" class="btn">
@@ -248,7 +313,8 @@ p{
     </a>
 
     <div class="footer">
-        © 2026 Badrinath Gore • Quality Engineer    </div>
+        © 2026 Badrinath Gore • All Rights Reserved
+    </div>
 
 </div>
 
